@@ -4,6 +4,11 @@
 
 An intro to make a simple map, host it locally, and use git terminal to update one’s repo. Help young Regen (photographed above) learn to make a map!
 
+###Presentations:
+[Simple map presentation](http://maptimela.github.io/git_your_map_here/index_slide.html)
+
+[Get Git Got presentation](http://slides.com/patriciarealini/get-git-got#/)
+
 ### Check out the map:
 
 Map: http://maptimela.github.io/git_your_map_here/
