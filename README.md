@@ -24,6 +24,7 @@ The data was converted from Socrata’s `json` type to `geoJSON` with [socrata-g
 ### Other steps to consider
 * Geocoding with [QGIS](http://www.qgis.org/en/site/) (an open-source GUI GIS app) or command line geoprocessing tools
 
+
 ### Tools needed (We will have these files ready to distribute during the meetup)
 * [Python](https://www.python.org/), Please download version 2.7. If you have issues, have no fear, we will help you the day of.
 * Install Git! http://git-scm.com/download
