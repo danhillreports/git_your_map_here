@@ -2,22 +2,23 @@
 
 # Git your map right here! on github!
 
-###An intro to make a simple map, host it locally, and use git terminal to update one's repo. Help young Regen (photographed above) learn to make a map!
+An intro to make a simple map, host it locally, and use git terminal to update one’s repo. Help young Regen (photographed above) learn to make a map!
 
-###Steps to git your map to github
-1. Get a github account, download desktop or terminal
-  * What is Github?, You are actually using it with this webpage, learn more about it [here!](http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1)
-2. Fork the repo
-3. Make a simple map with a geojson full of markers, here's a [Quick Guide](http://leafletjs.com/examples/quick-start.html)
-4. Test locally (Discuss CORS, python simpleHTTPserver)
-5. Use git terminal to push to one's repo
-6. Stand up with your laptop and say "Git your map right here!"
+### Steps:
+0. Open the Terminal/Powershell app and a web browser. Get a GitHub account and fork the repository.
+1. Move into that specific folder: `cd git_your_map_here` (Pro tip: Remember to use tab completion - click tab and then enter) and click Enter
+2. Run a local server by typing into Terminal/Powershell: `python -m SimpleHTTPServer 8000` and click Enter. This runs the Leaflet-powered map with marker and boundary data from two `.geojson` files in the `\data\` folder. 
+3. Open your browser (Chrome, Firefox preferred) and open `http://localhost:8000`
+4. To open on your phone, find your IP address and open `http://[YOUR-IP-ADDRESS]:8000/` in your phone’s mobile browser
+5. To see what is pushed up to the `gh-pages` branch, open `http://maptimela.github.io/git_your_map_here/`
+6. Stand up with your laptop and say “Git your map right here!”
 
-###Other steps to consider
-* Geocoding with QGIS or terminal
 
-###Tools needed (We will have these files ready to distribute during the meetup)
+### Other steps to consider
+* Geocoding with QGIS (an open-source GUI GIS app) or command line geoprocessing tools
+
+### Tools needed (We will have these files ready to distribute during the meetup)
 * [Python](https://www.python.org/), Please download version 2.7. If you have issues, have no fear, we will help you the day of.
 * Install Git! http://git-scm.com/download
-* Text Editor. Sublime is awesome & freeeee! http://www.sublimetext.com/
+* Text Editor. Sublime is awesome & free! http://www.sublimetext.com/ Atom is free too.
 * [QGIS](http://www.qgis.org/en/site/), an open source Geographic Information System
