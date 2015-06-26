@@ -4,6 +4,9 @@
 
 An intro to make a simple map, host it locally, and use git terminal to update one’s repo. Help young Regen (photographed above) learn to make a map!
 
+### Check out the map:
+Visit it here: http://maptimela.github.io/git_your_map_here/
+
 ### Steps:
 0. Open the Terminal/Powershell app and a web browser. Get a GitHub account and fork the repository.
 1. Move into that specific folder: `cd git_your_map_here` (Pro tip: Remember to use tab completion - click tab and then enter) and click Enter
