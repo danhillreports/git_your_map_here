@@ -59,6 +59,8 @@ An easy to navigate reference for all your Command Line needs!
 | `git rm filename.filetype`	| removes files from disk and stages removal of files in repo (then you commit your removal changes) 	|
 | `git rm -r foldername`		| removes folder & all the files within	|
 | `git commit -am "message"`	| auto removes files that you have deleted from the folder with your current commit	|
+| `git blame filename.filetype`	| outputs the author of every line within the file 			|
+
 
 ##Resources
 
@@ -80,6 +82,7 @@ An easy to navigate reference for all your Command Line needs!
 * [Git Youtube Videos](https://www.youtube.com/playlist?list=PLg7s6cbtAD165JTRsXh8ofwRw0PqUnkVH)
 * [Git Dev Docs](http://devdocs.io/git/git)
 * [Git Cheat Sheet](http://overapi.com/git/)
+* [How to Undo in Git](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
 
 
 
