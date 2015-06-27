@@ -62,6 +62,8 @@ An easy to navigate reference for all your Command Line needs!
 
 ##Resources
 
+[Get Git Got Presentation](http://slides.com/patriciarealini/get-git-got#/)
+
 ###Walkthroughs
 * [Try Git](https://try.github.io/)
 * [Git Immersion](http://gitimmersion.com/)
