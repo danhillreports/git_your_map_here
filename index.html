@@ -28,7 +28,6 @@
   var latimes = L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png').addTo(map);
 
   //Create locations for geojson
-  var nc_boundaries = "data/nc_boundaries.geojson";
   var nc_locations = "data/nc_locations.geojson";
   var boundariesData = null;
   var locationData = null;
@@ -38,55 +37,62 @@
   //Styles and loads the Meeting Locations of the Neighborhood Councils
   $.getJSON(nc_locations, function(data) {
     locationData = L.mapbox.featureLayer(data, {
-      style:{
+      style: {
           radius: 5,
           fillColor:"#ff7f00",
           color: "#000",
           weight: 0,
           opacity: 0,
           fillOpacity: 0.8
-          },
+      },
       pointToLayer: function(feature, latlon) {
         return L.circleMarker(latlon).bindPopup("<h2>"+feature.properties.neighborhood_council_name+"</h2>"+feature.properties.meeting_location);
       }
-    }).addTo(map)
+    });
+
+    getPizza();
   });
 
 
+var getPizza = function() {
   //This links to data.lacity.org
   $.getJSON('https://data.lacity.org/resource/66es-k6kk.json', function(data) {
     $.each(data, function(index, value) {
-      L.marker([value.location_1.latitude,value.location_1.longitude],
-        {
-          icon: L.mapbox.marker.icon({
-            'marker-size': 'small',
-            'marker-symbol': 'fast-food',
-            'marker-color': '#fa0'
-          })
-        }
-      ).addTo(pizzaLocations);
+      L.marker([value.location_1.latitude, value.location_1.longitude])
+       .addTo(pizzaLocations);
     });
   });
 
-  pizzaLocations.addTo(map);
+  locationData.addTo(map);
+  addEvent(locationData);
+}
 
-  var addEvent = function(pizza) {
-    pizza.on("click", function(e) {
-      var pizzaFeatures = pizza.getGeoJSON();
-      var councilFeatures = locationData.getGeoJSON();
+var addEvent = function(councils) {
+  councils.on("click", function(e) {
+    var councilFeatures = councils.getGeoJSON();
+    var pizzaFeatures = pizzaLocations.toGeoJSON();
 
-      var nearestPizza = turf.nearest(e.layer.toGeoJSON(), councilFeatures);
+    var nearestPizza = turf.nearest(e.layer.toGeoJSON(), pizzaFeatures);
+    L.marker([nearestPizza.geometry.coordinates[1],
+              nearestPizza.geometry.coordinates[0]],
+             {
+               icon: L.mapbox.marker.icon({
+                 'marker-size': 'small',
+                 'marker-symbol': 'fast-food',
+                 'marker-color': '#fa0',
+               })
+             }
+            ).addTo(map);
 
+    line = L.polyline([
+      e.layer.getLatLng(),
+      new L.LatLng(nearestPizza.geometry.coordinates[1],
+                   nearestPizza.geometry.coordinates[0])
+      ]).addTo(map);
 
-      line = L.polyline([
-        new L.LatLng(e.latlng.lat, e.latlng.lng),
-        new L.LatLng(nearestPizza.geometry.coordinates[1],
-                     nearestPizza.geometry.coordinates[0])
-        ]).addTo(map);
-    });
-  }
-
-  addEvent(pizzaLocations);
+    map.fitBounds(line.getBounds());
+  });
+}
 	</script>
 </body>
 </html>
