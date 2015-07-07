@@ -46,7 +46,7 @@
           fillOpacity: 0.8
       },
       pointToLayer: function(feature, latlon) {
-        return L.circleMarker(latlon).bindPopup("<h2>"+feature.properties.neighborhood_council_name+"</h2>"+feature.properties.meeting_location);
+        return L.circleMarker(latlon);
       }
     });
 
